@@ -87,35 +87,27 @@ class TestShortMode:
 
 class TestMultipleWakeWords:
     def test_detect_first_wake_word(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words=["小月", "小智"])
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words=["小月", "小智"]))
         events = detector.feed("你好小月")
         detected = [e for e in events if e.type == WakeWordEventType.DETECTED]
         assert len(detected) == 1
         assert detected[0].wake_word == "小月"
 
     def test_detect_second_wake_word(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words=["小月", "小智"])
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words=["小月", "小智"]))
         events = detector.feed("你好小智")
         detected = [e for e in events if e.type == WakeWordEventType.DETECTED]
         assert len(detected) == 1
         assert detected[0].wake_word == "小智"
 
     def test_detect_both_wake_words(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words=["小月", "小智"])
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words=["小月", "小智"]))
         events = detector.feed("小月和小智")
         detected = [e for e in events if e.type == WakeWordEventType.DETECTED]
         assert len(detected) == 2
 
     def test_no_not_detected_when_any_matches(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words=["小月", "小智"])
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words=["小月", "小智"]))
         events = detector.feed("你好小月")
         not_detected = [e for e in events if e.type == WakeWordEventType.NOT_DETECTED]
         assert len(not_detected) == 0
@@ -188,9 +180,7 @@ class TestAddRemoveWakeWord:
         assert detector.check("你好小智") is True
 
     def test_remove_wake_word(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words=["小月", "小智"])
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words=["小月", "小智"]))
         detector.remove_wake_word("小月")
         assert detector.check("你好小月") is False
         assert detector.check("你好小智") is True
@@ -216,16 +206,12 @@ class TestReset:
 
 class TestMinTextLength:
     def test_short_text_skipped(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words="月", min_text_length=2)
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words="月", min_text_length=2))
         events = detector.feed("月")
         assert events == []
 
     def test_text_at_min_length(self):
-        detector = PinyinWakeWord(
-            WakeWordConfig(wake_words="月", min_text_length=1)
-        )
+        detector = PinyinWakeWord(WakeWordConfig(wake_words="月", min_text_length=1))
         assert detector.check("月") is True
 
 

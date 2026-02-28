@@ -34,9 +34,11 @@ def example_event_driven():
     listening = False
     for event in detector.iter_events(simulate_asr_stream()):
         if event.type == WakeWordEventType.DETECTED:
-            print("  [WAKE] Detected: {!r} at position {}".format(
-                event.matched_text, event.position
-            ))
+            print(
+                "  [WAKE] Detected: {!r} at position {}".format(
+                    event.matched_text, event.position
+                )
+            )
             listening = True
         elif event.type == WakeWordEventType.NOT_DETECTED:
             if listening:

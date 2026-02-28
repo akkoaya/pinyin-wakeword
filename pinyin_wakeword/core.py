@@ -163,10 +163,7 @@ class PinyinWakeWord:
                     self.on_detected(event)
 
             # Partial match check (only in partial mode, when no exact match)
-            if (
-                not matches
-                and self._config.match_mode == "partial"
-            ):
+            if not matches and self._config.match_mode == "partial":
                 partial_results = match_partial(
                     processed, effective_word, style=self._pinyin_style
                 )

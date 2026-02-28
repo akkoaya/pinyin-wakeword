@@ -86,9 +86,7 @@ def example_homophone():
 def example_multiple_wake_words():
     """Using multiple wake words."""
     print("=== Multiple Wake Words Example ===")
-    detector = PinyinWakeWord(
-        WakeWordConfig(wake_words=["小月", "小智", "你好"])
-    )
+    detector = PinyinWakeWord(WakeWordConfig(wake_words=["小月", "小智", "你好"]))
 
     texts = ["小月你好吗", "小智帮我", "你好世界", "再见"]
     for text in texts:
@@ -96,9 +94,7 @@ def example_multiple_wake_words():
         for event in events:
             if event.type == WakeWordEventType.DETECTED:
                 print(
-                    "  {!r} -> DETECTED (wake_word={!r})".format(
-                        text, event.wake_word
-                    )
+                    "  {!r} -> DETECTED (wake_word={!r})".format(text, event.wake_word)
                 )
             elif event.type == WakeWordEventType.NOT_DETECTED:
                 print("  {!r} -> NOT_DETECTED".format(text))

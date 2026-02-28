@@ -115,9 +115,7 @@ def match_fuzzy(text, wake_word, threshold=0.8, style=Style.NORMAL):
         if len(window_pinyin) != pinyin_len:
             continue
 
-        matches = sum(
-            1 for a, b in zip(window_pinyin, target_pinyin) if a == b
-        )
+        matches = sum(1 for a, b in zip(window_pinyin, target_pinyin) if a == b)
         similarity = matches / pinyin_len
 
         if similarity >= threshold:
