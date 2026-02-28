@@ -1,8 +1,37 @@
-# pinyin-wakeword
+<p align="center">
+  <h1 align="center">pinyin-wakeword</h1>
+  <p align="center">Pinyin-based wake word detection for Chinese speech recognition pipelines</p>
+</p>
 
-Pinyin-based wake word detection for Chinese speech recognition pipelines.
+<p align="center">
+  <a href="https://pypi.org/project/pinyin-wakeword/"><img src="https://img.shields.io/pypi/v/pinyin-wakeword?color=blue" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/pinyin-wakeword/"><img src="https://img.shields.io/pypi/pyversions/pinyin-wakeword" alt="Python versions"></a>
+  <a href="https://github.com/akkoaya/pinyin-wakeword/blob/main/LICENSE"><img src="https://img.shields.io/github/license/akkoaya/pinyin-wakeword" alt="License"></a>
+  <a href="https://github.com/akkoaya/pinyin-wakeword/issues"><img src="https://img.shields.io/github/issues/akkoaya/pinyin-wakeword" alt="Issues"></a>
+</p>
+
+<p align="center">
+  <a href="./README_CN.md">简体中文</a> | English
+</p>
+
+---
 
 Uses [pypinyin](https://github.com/mozillazg/python-pinyin) to convert Chinese text to pinyin syllables, enabling **homophone-tolerant** wake word matching. For example, configuring the wake word as "小月" will also match "晓悦", "小悦", etc.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Configuration](#configuration)
+- [Match Modes](#match-modes)
+- [Short Mode](#short-mode)
+- [Runtime Control](#runtime-control)
+- [Events](#events)
+- [Examples](#examples)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -152,6 +181,13 @@ detector.reset()
 | `PARTIAL_MATCH` | Prefix match (partial mode) | `matched_text` |
 | `NOT_DETECTED` | No match found | `text` |
 
+## Examples
+
+See the [`examples/`](./examples) directory for complete usage examples:
+
+- [`basic_detection.py`](./examples/basic_detection.py) — Basic wake word detection
+- [`with_asr.py`](./examples/with_asr.py) — Integration with ASR streaming
+
 ## Development
 
 ```bash
@@ -161,6 +197,22 @@ pip install -e ".[dev]"
 pytest -v
 ```
 
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+Please make sure to update tests as appropriate.
+
 ## License
 
-[MIT](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [pypinyin](https://github.com/mozillazg/python-pinyin) — Chinese characters to pinyin conversion

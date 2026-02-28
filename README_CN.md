@@ -1,8 +1,37 @@
-# pinyin-wakeword
+<p align="center">
+  <h1 align="center">pinyin-wakeword</h1>
+  <p align="center">基于拼音的中文唤醒词检测库，适用于语音识别（ASR）管线</p>
+</p>
 
-基于拼音的中文唤醒词检测库，适用于语音识别（ASR）管线。
+<p align="center">
+  <a href="https://pypi.org/project/pinyin-wakeword/"><img src="https://img.shields.io/pypi/v/pinyin-wakeword?color=blue" alt="PyPI version"></a>
+  <a href="https://pypi.org/project/pinyin-wakeword/"><img src="https://img.shields.io/pypi/pyversions/pinyin-wakeword" alt="Python versions"></a>
+  <a href="https://github.com/akkoaya/pinyin-wakeword/blob/main/LICENSE"><img src="https://img.shields.io/github/license/akkoaya/pinyin-wakeword" alt="License"></a>
+  <a href="https://github.com/akkoaya/pinyin-wakeword/issues"><img src="https://img.shields.io/github/issues/akkoaya/pinyin-wakeword" alt="Issues"></a>
+</p>
+
+<p align="center">
+  简体中文 | <a href="./README.md">English</a>
+</p>
+
+---
 
 使用 [pypinyin](https://github.com/mozillazg/python-pinyin) 将中文文本转换为拼音音节，实现**同音字容错**的唤醒词匹配。例如，配置唤醒词为"小月"，同样可以匹配"晓悦"、"小悦"等同音词。
+
+## 目录
+
+- [特性](#特性)
+- [安装](#安装)
+- [快速开始](#快速开始)
+- [配置参数](#配置参数)
+- [匹配模式](#匹配模式)
+- [短模式](#短模式)
+- [运行时控制](#运行时控制)
+- [事件类型](#事件类型)
+- [示例](#示例)
+- [开发](#开发)
+- [贡献指南](#贡献指南)
+- [许可证](#许可证)
 
 ## 特性
 
@@ -152,6 +181,13 @@ detector.reset()
 | `PARTIAL_MATCH` | 前缀匹配命中 | `matched_text` |
 | `NOT_DETECTED` | 未检测到 | `text` |
 
+## 示例
+
+查看 [`examples/`](./examples) 目录获取完整示例：
+
+- [`basic_detection.py`](./examples/basic_detection.py) — 基本唤醒词检测
+- [`with_asr.py`](./examples/with_asr.py) — 与 ASR 流式集成
+
 ## 开发
 
 ```bash
@@ -161,6 +197,22 @@ pip install -e ".[dev]"
 pytest -v
 ```
 
+## 贡献指南
+
+欢迎贡献！请按以下步骤操作：
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/your-feature`)
+3. 提交更改 (`git commit -m 'Add some feature'`)
+4. 推送分支 (`git push origin feature/your-feature`)
+5. 发起 Pull Request
+
+请确保同步更新相关测试。
+
 ## 许可证
 
-[MIT](LICENSE)
+本项目基于 MIT 许可证开源，详见 [LICENSE](LICENSE) 文件。
+
+## 致谢
+
+- [pypinyin](https://github.com/mozillazg/python-pinyin) — 中文转拼音库
