@@ -1,6 +1,5 @@
 """Tests for pinyin matching algorithms."""
 
-
 from pinyin_wakeword.matchers import (
     match_exact,
     match_fuzzy,
