@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinyin-wakeword"
+version = "0.1.0"
+description = "Pinyin-based wake word detection for Chinese speech recognition pipelines"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    { name = "akkoaya" },
+]
+keywords = ["wakeword", "wake-word", "pinyin", "chinese", "asr", "speech", "voice"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+dependencies = [
+    "pypinyin>=0.44",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/akkoaya/pinyin-wakeword"
+Repository = "https://github.com/akkoaya/pinyin-wakeword"
+Issues = "https://github.com/akkoaya/pinyin-wakeword/issues"
+Documentation = "https://github.com/akkoaya/pinyin-wakeword#readme"
+
+[tool.setuptools.packages.find]
+include = ["pinyin_wakeword*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
